@@ -1,0 +1,59 @@
+﻿<Window x:Class="Task_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_2"
+        mc:Ignorable="d"
+        Height="720" 
+        Width="1280" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" 
+        AllowsTransparency="True"
+        Background="Transparent"
+        FontFamily="Microsoft Yahei">
+    <Border
+        Background="#252B35"        
+        CornerRadius="15"
+        MouseDown="Border_MouseDown">
+
+        <Grid 
+            x:Name="mygrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="685" />
+            </Grid.RowDefinitions>
+
+            <Label 
+                x:Name="lblClose" 
+                Content="X" 
+                FontSize="16" 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0, 0, 15, 0"
+                MouseDown="lblClose_MouseDown" 
+                ForceCursor="True"
+                Foreground="#fff"
+                Cursor="Hand"/>
+
+            <Label 
+                x:Name="lblCaption" 
+                x:FieldModifier="public" 
+                Content="Course Manager" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Left" 
+                FontSize="16" Margin="10, 0, 0, 0" 
+                Foreground="#fff"
+                FontWeight="Black"/>
+
+            <Frame 
+                x:Name="frmView"
+                x:FieldModifier="public" 
+                NavigationUIVisibility="Hidden" 
+                Source="Views/Login.xaml" 
+                Grid.Row="1" 
+                Navigating="frmView_Navigating"/>
+        </Grid>
+    </Border>
+</Window>

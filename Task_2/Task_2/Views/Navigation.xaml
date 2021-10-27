@@ -1,0 +1,135 @@
+﻿<Page x:Class="Task_2.Views.Navigation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Task_2.Views"
+      mc:Ignorable="d" 
+      Height="685" 
+      Width="1280" 
+      FontFamily="Microsoft Yahei">
+
+    <Border        
+        Background="#fff"        
+        CornerRadius="0, 0, 15, 15">
+        <Grid x:Name="myGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="650"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle 
+                x:Name="rectTopBar"
+                Fill="#333B49"/>
+
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center">
+
+                <WrapPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                    <Image 
+                        x:Name="imgDashboard"
+                        Source="pack://Application:,,,/Assets/Icons/dashboard_white.png"
+                        Width="20"
+                        Height="20"
+                        Margin="5, 5, 0, 0"/>
+
+                    <TextBlock 
+                        x:Name="tbDashboard"
+                        Text="Dashboard"
+                        Foreground="#fff"
+                        Margin="10, 5, 0, 0"
+                        ForceCursor="True"
+                        Cursor="Hand"
+                        MouseEnter="tbDashboard_MouseEnter"
+                        MouseLeave="tbDashboard_MouseLeave"
+                        MouseDown="tbDashboard_MouseDown"/>
+
+                </WrapPanel>
+
+                <WrapPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="10, 0, 0, 0">
+
+                    <Image 
+                        x:Name="imgModules"
+                        Source="pack://Application:,,,/Assets/Icons/View_Modules_white.png"
+                        Width="20"
+                        Height="20"
+                        Margin="5, 5, 0, 0"/>
+
+                    <TextBlock 
+                        x:Name="tbViewModules"
+                        Text="View Modules"
+                        Foreground="#fff"
+                        Margin="10, 5, 0, 0"
+                        ForceCursor="True"
+                        Cursor="Hand"
+                        MouseEnter="tbViewModules_MouseEnter"
+                        MouseLeave="tbViewModules_MouseLeave"
+                        MouseDown="tbViewModules_MouseDown"/>
+
+                </WrapPanel>
+
+                <WrapPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="10, 0, 0, 0">
+
+                    <Image 
+                        x:Name="imgAddModules"
+                        Source="pack://Application:,,,/Assets/Icons/modules_white.png"
+                        Width="20"
+                        Height="20"
+                        Margin="5, 5, 0, 0"/>
+
+                    <TextBlock 
+                        x:Name="tbAddModule"
+                        Text="Add Modules"
+                        Foreground="#fff"
+                        Margin="10, 5, 0, 0"
+                        ForceCursor="True"
+                        Cursor="Hand"     
+                        MouseDown="tbAddModule_MouseDown"
+                        MouseEnter="tbAddModule_MouseEnter"
+                        MouseLeave="tbAddModule_MouseLeave"/>
+
+                </WrapPanel>
+
+            </StackPanel>
+
+            <WrapPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                Grid.Row="0">
+
+                <Image 
+                    x:Name="imgUser"
+                    Source="pack://Application:,,,/Assets/Icons/user_white.png"
+                    Width="20"
+                    Height="20"
+                    Margin="5, 5, 0, 0"/>
+
+                <Label 
+                    x:Name="lblUser"
+                    Content="20117648@rcconnect.co.za"
+                    Foreground="#fff"
+                    Margin="10, 5, 0, 0"
+                    ForceCursor="True"
+                    Cursor="Hand"/>
+
+            </WrapPanel>
+
+            <Frame 
+                NavigationUIVisibility="Hidden"
+                x:Name="frmView"
+                Grid.Row="1"/>
+
+        </Grid>
+    </Border>
+</Page>

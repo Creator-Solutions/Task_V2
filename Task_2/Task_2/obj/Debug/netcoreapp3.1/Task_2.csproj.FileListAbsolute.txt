@@ -1,0 +1,45 @@
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\Task 2.exe
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\Task 2.deps.json
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\Task 2.runtimeconfig.json
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\Task 2.runtimeconfig.dev.json
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\Task 2.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\Task 2.pdb
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Views\Login.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Views\Register.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\App.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task 2_MarkupCompile.cache
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task 2_MarkupCompile.lref
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\App.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\MainWindow.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Views\Login.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Views\Register.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task 2.g.resources
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.AssemblyInfoInputs.cache
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.AssemblyInfo.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.csproj.CoreCompileInputs.cache
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.csproj.CopyComplete
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task 2.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task 2.pdb
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.genruntimeconfig.cache
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Views\Navigation.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Views\Navigation.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\Dashboard.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\Dashboard.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\LiveCharts.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\LiveCharts.Wpf.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\TimeStamp.dll
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\bin\Debug\netcoreapp3.1\TimeStamp.pdb
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\AddModule.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\ViewModules.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\AddModule.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\ViewModules.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.csproj.AssemblyReference.cache

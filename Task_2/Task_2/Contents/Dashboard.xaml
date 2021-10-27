@@ -1,0 +1,384 @@
+﻿<Page x:Class="Task_2.Views.Dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:controllers="clr-namespace:Task_2.Scripts.Controllers" d:DataContext="{d:DesignInstance Type=controllers:DashboardController}"
+      mc:Ignorable="d"                 
+      Height="650" 
+      Width="1280"
+      Foreground="#fff">
+    <Border 
+        Loaded="Border_Loaded"
+        Background="#252B35"        
+        CornerRadius="0, 0, 15, 15">
+        <Grid>
+            <StackPanel
+                Orientation="Vertical">
+
+                <Label 
+                    x:Name="lblTitle"
+                    Content="Dashboard"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="15, 10, 0, 0"
+                    FontSize="18"
+                    FontWeight="Black"
+                    Foreground="#fff"/>
+
+                <WrapPanel
+                    Orientation="Horizontal"
+                    Margin="0, 10, 0, 0">
+
+                    <Border
+                        Background="#333B49"
+                        HorizontalAlignment="Left"
+                        Width="210"
+                        Height="300"
+                        CornerRadius="15"
+                        Margin="15, 15, 0, 0">
+
+                        <StackPanel
+                            Orientation="Vertical">
+
+                            <Label 
+                                x:Name="lblCurrentYear"
+                                Content="Current Year"
+                                FontSize="14"
+                                Foreground="#fff"
+                                HorizontalAlignment="Center"
+                                Margin="0, 5, 0, 0"/>
+
+                            <Label 
+                                x:Name="lblFYear"
+                                Content="{Binding Current_Year}"
+                                FontSize="14"
+                                Foreground="#C0C0C0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                FontWeight="Black"/>
+
+                            <Separator 
+                                Margin="0, 10, 0, 0"
+                                BorderThickness="2"
+                                BorderBrush="#C0C0C0"/>
+
+                            <Label 
+                                x:Name="lblSemLength"
+                                Content="Semester Length"
+                                Foreground="#fff"
+                                FontSize="14"
+                                HorizontalAlignment="Center"
+                                Margin="0, 20, 0, 0"/>
+
+                            <Label 
+                               x:Name="lblSemesterLength"
+                               Content="{Binding Semester_Length}"
+                               Foreground="#0073cf"
+                               FontWeight="DemiBold"
+                               FontSize="18"
+                               HorizontalAlignment="Center"/>
+
+                            <Label 
+                                x:Name="lblStartDate"
+                                Content="Semester Start Date"
+                                Foreground="#fff"
+                                FontSize="14"
+                                HorizontalAlignment="Center"
+                                Margin="0, 20, 0, 0"/>
+
+                            <Label 
+                               x:Name="lblDate"
+                               Content="{Binding Semester_Start_Date}"
+                               Foreground="#0073cf"
+                               FontWeight="DemiBold"
+                               FontSize="18"
+                               HorizontalAlignment="Center"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border
+                        Background="#333B49"
+                        Width="925"
+                        Height="350"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="10, 15, 0, 0"
+                        CornerRadius="10">
+
+                        <lvc:CartesianChart                             
+                            Series="{Binding SeriesCollection}" 
+                            LegendLocation="Top">
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis 
+                                    Title="Module Codes" 
+                                    Labels="{Binding Labels}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis 
+                                    Title="Hours Studied" 
+                                    LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                    </Border>
+                </WrapPanel>
+
+                <WrapPanel
+                    Orientation="Horizontal"
+                    Margin="0, 25, 0, 0"
+                    HorizontalAlignment="Center">
+
+                    <Border
+                        Background="#333B49"
+                        Width="350"
+                        Height="200"
+                        HorizontalAlignment="Left"
+                        Margin="15, 0, 0, 0">
+
+                        <StackPanel
+                            Orientation="Vertical">
+
+                            <WrapPanel
+                                Orientation="Horizontal">
+
+                                <Label 
+                                    x:Name="lblMostStudiedModule"
+                                    Content="Most Studied Module"
+                                    FontSize="14"
+                                    Foreground="#fff"
+                                    VerticalAlignment="Top"
+                                    Margin="65, 18, 0, 0"/>
+
+                                <Label 
+                                    x:Name="lblModuleCode"
+                                    Content="{Binding Highest_Module}"
+                                    FontWeight="Black"
+                                    Foreground="#0073cf"
+                                    FontSize="18"
+                                    VerticalAlignment="Top"
+                                    Margin="25, 15, 0, 0"/>
+
+                                <Separator 
+                                    BorderThickness="2"
+                                    Width="350"
+                                    BorderBrush="#C0C0C0"/>
+                            </WrapPanel>
+
+                            <StackPanel
+                                Orientation="Horizontal">
+
+                                <StackPanel
+                                    Orientation="Vertical"
+                                    Width="160"
+                                    Height="140"
+                                    HorizontalAlignment="Left">
+
+                                    <Label 
+                                        x:Name="lblNetCurr"
+                                        Content="Current"
+                                        Foreground="#fff"
+                                        HorizontalAlignment="Center"
+                                        Margin="0, 25, 0, 0"/>
+
+                                    <Label 
+                                        x:Name="lblCurrHoursStudied"
+                                        Content="{Binding Highest_Time}"
+                                        FontSize="18"
+                                        HorizontalAlignment="Center"
+                                        Foreground="#32cd32"
+                                        FontWeight="Black"/>
+
+                                </StackPanel>
+
+                                <StackPanel
+                                    Width="160"
+                                    Height="140"
+                                    Margin="30, 0, 0, 0"
+                                    HorizontalAlignment="Right">
+
+                                    <Label 
+                                        x:Name="lblStudyReq"
+                                        Content="Required"
+                                        HorizontalAlignment="Center"
+                                        Margin="0, 25, 0, 0"
+                                        Foreground="#fff"/>
+
+                                    <Label 
+                                        x:Name="lblStudyRequired"
+                                        Content="{Binding Highest_Required_Time}"
+                                        FontSize="18"
+                                        HorizontalAlignment="Center"
+                                        Foreground="#ce2029"
+                                        FontWeight="Black"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border
+                        Background="#333B49"
+                        Width="350"
+                        Height="200"
+                        HorizontalAlignment="Left"
+                        Margin="15, 0, 0, 0">
+
+                        <StackPanel
+                            Orientation="Vertical">
+
+                            <WrapPanel
+                                Orientation="Horizontal">
+
+                                <Label 
+                                    x:Name="lblModuleLeastStudied"
+                                    Content="Least Studied Module"
+                                    FontSize="14"
+                                    Foreground="#fff"
+                                    VerticalAlignment="Top"
+                                    Margin="65, 18, 0, 0"/>
+
+                                <Label 
+                                    x:Name="lblLeastModuleCode"
+                                    Content="{Binding Lowest_Module}"
+                                    FontWeight="Black"
+                                    Foreground="#0073cf"
+                                    FontSize="18"
+                                    VerticalAlignment="Top"
+                                    Margin="25, 15, 0, 0"/>
+
+                                <Separator 
+                                    BorderThickness="2"
+                                    Width="350"
+                                    BorderBrush="#C0C0C0"/>
+                            </WrapPanel>
+
+                            <StackPanel
+                                Orientation="Horizontal">
+
+                                <StackPanel
+                                    Orientation="Vertical"
+                                    Width="160"
+                                    Height="140"
+                                    HorizontalAlignment="Left">
+
+                                    <Label 
+                                        x:Name="lblCurrExp"
+                                        Content="Current"
+                                        HorizontalAlignment="Center"
+                                        Margin="0, 25, 0, 0"
+                                        Foreground="#fff"/>
+
+                                    <Label 
+                                        x:Name="lblCurrExpAmount"
+                                        Content="{Binding Lowest_Time}"
+                                        FontSize="18"
+                                        HorizontalAlignment="Center"
+                                        Foreground="#32cd32"
+                                        FontWeight="Black"/>
+
+                                </StackPanel>
+
+                                <StackPanel
+                                    Width="160"
+                                    Height="140"
+                                    Margin="30, 0, 0, 0"
+                                    HorizontalAlignment="Right">
+
+                                    <Label 
+                                        x:Name="lblStudyRequirement"
+                                        Content="Required"
+                                        HorizontalAlignment="Center"
+                                        Margin="0, 25, 0, 0"
+                                        Foreground="#fff"/>
+
+                                    <Label 
+                                        x:Name="lblRequirementAmount"
+                                        Content="{Binding Lowest_Required_Time}"
+                                        FontSize="18"
+                                        HorizontalAlignment="Center"
+                                        Foreground="#ce2029"
+                                        FontWeight="Black"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border
+                        Background="#333B49"
+                        Width="300"
+                        Height="200"
+                        HorizontalAlignment="Left"
+                        Margin="15, 0, 0, 0">
+
+                        <StackPanel
+                            Orientation="Vertical">
+
+                            <Label 
+                                x:Name="lblQuickLinks"
+                                Content="Quick Links"
+                                FontSize="16"
+                                FontWeight="Black"
+                                Foreground="#fff"
+                                Margin="15, 15, 0, 0"
+                                HorizontalAlignment="Left"/>
+
+                            <WrapPanel
+                                Orientation="Horizontal"
+                                Margin="0, 15, 0, 0">
+
+                                <Image 
+                                    x:Name="imgIncomeLink"
+                                    Source="pack://Application:,,,/Assets/Icons/module_blue.png"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="15, 0, 0, 0"/>
+
+                                <TextBlock 
+                                    x:Name="tbModulesLink"
+                                    FontSize="16"
+                                    Foreground="#0073cf"
+                                    Text="View Modules"
+                                    VerticalAlignment="Center"
+                                    Margin="15, 0, 0, 0"
+                                    ForceCursor="True"
+                                    Cursor="Hand"/>
+
+                            </WrapPanel>
+
+                            <WrapPanel
+                                Orientation="Horizontal"
+                                Margin="0, 15, 0, 0">
+
+                                <Image 
+                                    x:Name="imgExpenses"
+                                    Source="pack://Application:,,,/Assets/Icons/add_modules.png"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="15, 0, 0, 0"/>
+
+                                <TextBlock 
+                                    x:Name="tbAddModuleLink"
+                                    FontSize="16"
+                                    Foreground="#0073cf"
+                                    Text="Add Modules"
+                                    VerticalAlignment="Center"
+                                    Margin="15, 0, 0, 0"
+                                    ForceCursor="True"
+                                    Cursor="Hand"/>
+
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>

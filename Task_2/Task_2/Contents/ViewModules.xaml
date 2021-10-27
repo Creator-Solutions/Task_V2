@@ -1,0 +1,443 @@
+﻿<Page x:Class="Task_2.Views.ViewModules"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      Height="685" 
+      Width="1280"
+      Foreground="#fff"
+      Loaded="Page_Loaded"
+      xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+      xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf">
+    <Page.Resources>
+        <Style TargetType="{x:Type TextBox}" x:Key="roundcornerTextboxwithbordereffect">
+            <Setter Property="Padding" Value="15, 15, 15, 15"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}"    
+                              x:Name="Bd" BorderBrush="Black"   
+                              BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="Width" Value="Auto">
+                                <Setter Property="MinWidth" Value="100"/>
+                            </Trigger>
+                            <Trigger Property="Height" Value="Auto">
+                                <Setter Property="MinHeight" Value="20"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#fff"></Setter>
+                                <Setter TargetName="Bd" Property="BorderThickness" Value="2"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="#fff"></Setter>
+                                <Setter TargetName="Bd" Property="BorderThickness" Value="2"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style 
+            x:Key="Body_Content_DataGrid_Centering"
+	        TargetType="{x:Type DataGridCell}">
+            <Setter 
+                Property="HorizontalAlignment"
+			    Value="Center" />
+        </Style>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" >
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation 
+                        Storyboard.TargetName="pgLoading"
+                        Storyboard.TargetProperty="Value"
+                        From="0" To="100" Duration="0:0:5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <Border        
+        Background="#252B35"        
+        CornerRadius="0, 0, 15, 15">
+
+        <Grid>
+            <StackPanel
+                Orientation="Vertical">
+
+                <ProgressBar 
+                    x:Name="pgLoading" 
+                    IsIndeterminate="true"
+                    Minimum="0"
+                    Maximum="5"/>
+
+                <Label 
+                    x:Name="lblCaption"
+                    Content="Student Modules"
+                    FontSize="28"
+                    FontWeight="Black"
+                    Foreground="#C0C0C0" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="25, 25, 0, 0"/>
+
+                <WrapPanel
+                    Orientation="Horizontal"
+                    Height="180">
+
+                    <Border
+                        Height="150"
+                        Width="850"
+                        BorderThickness="0, 5, 0, 0"
+                        BorderBrush="#6590C6"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        CornerRadius="15, 15, 15, 15"
+                        Background="#333B49"
+                        Margin="25, 25, 0, 0">
+                        <WrapPanel
+                        Orientation="Vertical">
+
+                            <Label 
+                                x:Name="lblSearch" 
+                                Content="Search Module"
+                                FontFamily="18"
+                                Margin="25, 15, 0, 0"
+                                Foreground="#fff"/>
+
+                            <WrapPanel
+                            Orientation="Horizontal">
+
+                                <TextBox  
+                                    x:Name="txtModuleCode"
+                                    Margin="25, 5, 0, 0"
+                                    Style="{StaticResource roundcornerTextboxwithbordereffect}"
+                                    Foreground="#fff"
+                                    FontSize="16"
+                                    Height="30"
+                                    Width="650"
+                                    Background="#1B1D23"
+                                    materialDesign:HintAssist.Hint="Module Code" />
+
+                                <Border
+                                    Background="#4A9DF6"
+                                    Width="100"
+                                    CornerRadius="15, 15, 15, 15"
+                                    Margin="15, 0, 0, 0">
+
+                                    <TextBlock 
+                                        x:Name="tbSearch"
+                                        Text="Search"
+                                        FontSize="20"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        ForceCursor="True"
+                                        Cursor="Hand"
+                                        MouseDown="tbSearch_MouseDown"/>
+
+                                </Border>
+                            </WrapPanel>
+
+                            <Label 
+                                x:Name="lblExample"
+                                Content="Ex: PROG6212"
+                                Foreground="#C0C0C0"  
+                                HorizontalAlignment="Left"
+                                Margin="25, 5, 0, 0"/>
+
+                        </WrapPanel>
+                    </Border>
+
+                    <Border
+                        Width="380"
+                        Height="150"
+                        Margin="10, 25, 0, 0"
+                        BorderThickness="0, 5, 0, 0"
+                        CornerRadius="15, 15, 15, 15"
+                        BorderBrush="#6590C6"
+                         Background="#333B49">
+
+                        <StackPanel
+                            Orientation="Vertical">
+
+                            <Label 
+                                x:Name="lblTitle"
+                                Content="Module Information"
+                                Foreground="#fff"
+                                FontSize="16"/>
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Height="110">
+
+                                <Border
+                                    Width="115"
+                                    Height="85"
+                                    Margin="2, 0, 0, 0"
+                                    CornerRadius="20, 20, 20, 20"
+                                    Background="#252B35">
+
+                                    <StackPanel
+                                        Orientation="Vertical">
+
+                                        <Label                                             
+                                            x:Name="lblModulesCount"
+                                            Content="{Binding Module_Count}"
+                                            FontSize="32"
+                                            Foreground="#4E6870"
+                                            HorizontalAlignment="Center"/>
+
+                                        <Label 
+                                            x:Name="lblModuleTitle"
+                                            Content="Modules"
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            Foreground="#48525D"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <Border
+                                    Width="115"
+                                    Height="85"
+                                    Margin="10, 0, 0, 0"
+                                    CornerRadius="20, 20, 20, 20"
+                                    Background="#252B35">
+
+                                    <StackPanel
+                                        Orientation="Vertical">
+
+                                        <Label                                             
+                                            x:Name="lblTotalCreditCount"
+                                            Content="{Binding Total_Credits}"
+                                            FontSize="32"
+                                            Foreground="#4E6870"
+                                            HorizontalAlignment="Center"/>
+
+                                        <Label 
+                                            x:Name="lblCreditCountCap"
+                                            Content="Credits"
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            Foreground="#48525D"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <Border
+                                    Width="120"
+                                    Height="85"
+                                    Margin="10, 0, 0, 0"
+                                    CornerRadius="20, 20, 20, 20"
+                                    Background="#252B35">
+
+                                    <StackPanel
+                                        Orientation="Vertical">
+
+                                        <Label                                             
+                                            x:Name="lblAvgTime"
+                                            Content="{Binding Average_Time}"
+                                            FontSize="32"
+                                            Foreground="#4E6870"
+                                            HorizontalAlignment="Center"/>
+
+                                        <Label 
+                                            x:Name="lblAverageTime"
+                                            Content="Average Time"
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            Foreground="#48525D"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </Border>
+
+                </WrapPanel>
+
+                <DataGrid
+                    x:Name="dgData"
+                    Background="#232932"
+                    Margin="0, 55, 0, 0"
+                    Height="350"
+                    Foreground="#fff"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Student Number"
+                            Width="200"
+                            Binding="{Binding Path=Student_Number}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style
+                                    TargetType="DataGridColumnHeader">
+
+                                    <Setter 
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"/>
+
+                                    <Setter 
+                                        Property="Foreground"
+                                        Value="#fff"/>
+
+                                    <Setter 
+                                        Property="Background"
+                                        Value="#333B49"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Module Code"
+                            Width="205"
+                            Binding="{Binding Path=ModueCode}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style
+                                    TargetType="DataGridColumnHeader">
+
+                                    <Setter 
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"/>
+
+                                    <Setter 
+                                        Property="Foreground"
+                                        Value="#fff"/>
+
+                                    <Setter 
+                                        Property="Background"
+                                        Value="#333B49"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Module Name"
+                            Width="240"
+                            Binding="{Binding Path=ModuleName}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style
+                                    TargetType="DataGridColumnHeader">
+
+                                    <Setter 
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"/>
+
+                                    <Setter 
+                                        Property="Foreground"
+                                        Value="#fff"/>
+
+                                    <Setter 
+                                        Property="Background"
+                                        Value="#333B49"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Module Credits"
+                            Width="205"
+                            Binding="{Binding Path=Module_Credit}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style
+                                    TargetType="DataGridColumnHeader">
+
+                                    <Setter 
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"/>
+
+                                    <Setter 
+                                        Property="Foreground"
+                                        Value="#fff"/>
+
+                                    <Setter 
+                                        Property="Background"
+                                        Value="#333B49"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Study Hours Remaining"
+                            Width="205"
+                            Binding="{Binding Path=Study_Hours_Remaining}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style
+                                    TargetType="DataGridColumnHeader">
+
+                                    <Setter 
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"/>
+
+                                    <Setter 
+                                        Property="Foreground"
+                                        Value="#fff"/>
+
+                                    <Setter 
+                                        Property="Background"
+                                        Value="#333B49"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTemplateColumn 
+                            Header="Delete Module"
+                            Width="222">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style
+                                    TargetType="DataGridColumnHeader">
+
+                                    <Setter 
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"/>
+
+                                    <Setter 
+                                        Property="Foreground"
+                                        Value="#fff"/>
+
+                                    <Setter 
+                                        Property="Background"
+                                        Value="#333B49"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                
+                                <DataTemplate>
+                                    <Button 
+                                        Name="btnView"
+                                        Content="Delete Module"
+                                        Click="btnView_Click"/>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>
