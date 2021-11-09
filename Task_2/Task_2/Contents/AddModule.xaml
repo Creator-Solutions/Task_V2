@@ -4,18 +4,181 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Task_2.Views"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation" mc:Ignorable="d" 
        d:DesignHeight="685" 
       d:DesignWidth="1280" 
-      FontFamily="Microsoft Yahei">
-
+      FontFamily="Microsoft Yahei"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" xmlns:Local="clr-namespace:Task_2.Custom_Controls">
+    <Page.Resources>
+        <Style x:Key="CalendarCalendarItemStyle1" TargetType="{x:Type Calendar}">
+            <Setter Property="Margin" Value="0,3,0,3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <ControlTemplate.Resources>
+                            <DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
+                                <TextBlock FontWeight="Bold" FontFamily="Microsoft Yahei" Foreground="#FF333333" FontSize="9.5" HorizontalAlignment="Center" Margin="0,6,0,6" Text="{Binding}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </ControlTemplate.Resources>
+                        <Grid x:Name="PART_Root">
+                            <Grid.Resources>
+                                <SolidColorBrush x:Key="DisabledColor" Color="#333B49"/>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetName="PART_DisabledVisual" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1">
+                                <Border BorderThickness="2" BorderBrush="#333B49" CornerRadius="1">
+                                    <Grid>
+                                        <Grid.Resources>
+                                            <ControlTemplate x:Key="PreviousButtonTemplate" TargetType="{x:Type Button}">
+                                                <Grid Cursor="Hand">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Normal"/>
+                                                            <VisualState x:Name="MouseOver">
+                                                                <Storyboard>
+                                                                    <ColorAnimation Duration="0" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" To="#FF73A9D8"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                            <VisualState x:Name="Disabled">
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)" To=".5"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                    <Rectangle Fill="#333B49" Opacity="1" Stretch="Fill"/>
+                                                    <Grid>
+                                                        <Path x:Name="path" Data="M288.75,232.25 L288.75,240.625 L283,236.625 z" Fill="#FF333333" HorizontalAlignment="Left" Height="10" Margin="14,-6,0,0" Stretch="Fill" VerticalAlignment="Center" Width="6"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </ControlTemplate>
+                                            <ControlTemplate x:Key="NextButtonTemplate" TargetType="{x:Type Button}">
+                                                <Grid Cursor="Hand">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Normal"/>
+                                                            <VisualState x:Name="MouseOver">
+                                                                <Storyboard>
+                                                                    <ColorAnimation Duration="0" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" To="#FF73A9D8"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                            <VisualState x:Name="Disabled">
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)" To=".5"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                    <Rectangle Fill="#333B49" Opacity="1" Stretch="Fill"/>
+                                                    <Grid>
+                                                        <Path x:Name="path" Data="M282.875,231.875 L282.875,240.375 L288.625,236 z" Fill="#FF333333" HorizontalAlignment="Right" Height="10" Margin="0,-6,14,0" Stretch="Fill" VerticalAlignment="Center" Width="6"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </ControlTemplate>
+                                            <ControlTemplate x:Key="HeaderButtonTemplate" TargetType="{x:Type Button}">
+                                                <Grid Cursor="Hand">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Normal"/>
+                                                            <VisualState x:Name="MouseOver">
+                                                                <Storyboard>
+                                                                    <ColorAnimation Duration="0" Storyboard.TargetName="buttonContent" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" To="#FF73A9D8"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                            <VisualState x:Name="Disabled">
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Duration="0" Storyboard.TargetName="buttonContent" Storyboard.TargetProperty="Opacity" To=".5"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                    <ContentPresenter x:Name="buttonContent" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" TextElement.Foreground="#FF333333" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,4,1,9" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Button x:Name="PART_PreviousButton" Grid.Column="0" Focusable="False" HorizontalAlignment="Left" Height="20" Grid.Row="0" Template="{StaticResource PreviousButtonTemplate}" Width="28"/>
+                                        <Button x:Name="PART_HeaderButton" Grid.Column="1" Focusable="False" FontWeight="Bold" FontSize="10.5" HorizontalAlignment="Center" Grid.Row="0" Template="{StaticResource HeaderButtonTemplate}" VerticalAlignment="Center"/>
+                                        <Button x:Name="PART_NextButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Right" Height="20" Grid.Row="0" Template="{StaticResource NextButtonTemplate}" Width="28"/>
+                                        <Grid x:Name="PART_MonthView" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="6,-1,6,6" Grid.Row="1" Visibility="Visible">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                        </Grid>
+                                        <Grid x:Name="PART_YearView" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="6,-3,7,6" Grid.Row="1" Visibility="Hidden">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </Border>
+                            <Rectangle x:Name="PART_DisabledVisual" Fill="{StaticResource DisabledColor}" Opacity="0" RadiusX="2" RadiusY="2" StrokeThickness="1" Stretch="Fill" Stroke="{StaticResource DisabledColor}" Visibility="Collapsed"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Visibility" TargetName="PART_DisabledVisual" Value="Visible"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Year">
+                                <Setter Property="Visibility" TargetName="PART_MonthView" Value="Hidden"/>
+                                <Setter Property="Visibility" TargetName="PART_YearView" Value="Visible"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Decade">
+                                <Setter Property="Visibility" TargetName="PART_MonthView" Value="Hidden"/>
+                                <Setter Property="Visibility" TargetName="PART_YearView" Value="Visible"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Border
-        Background="#f5f5f5"
+        Background="#252B35"
         CornerRadius="0, 0, 15, 15">
 
         <Grid>
-
             <Label 
                 x:Name="lblModuleTitle"
                 Content="Add Modules"
@@ -28,9 +191,26 @@
 
             <StackPanel
                 Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Calendar"
+                            x:Key="DateTimeCalendar">
+                        <Setter 
+                            Property="Background" 
+                            Value="LightBlue"/>
+                        
+                        <Setter 
+                            Property="BorderBrush" 
+                            Value="DarkBlue"/>
+                        
+                        <Setter 
+                            Property="BorderThickness" 
+                            Value="5"/>
+                    </Style>
+
+                </StackPanel.Resources>
 
                 <Border
-                    Background="#fff"
+                    Background="#333B49"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Width="850"
@@ -70,7 +250,7 @@
                                 x:Name="lblModuleCode"
                                 Content="Module Code"
                                 FontSize="16"
-                                FontWeight="Black"/>
+                                FontWeight="Black" Foreground="#DDF7F7F7"/>
 
                             <TextBox 
                                 x:Name="txtModuleCode"
@@ -78,14 +258,14 @@
                                 FontSize="16"
                                 Margin="25, 0, 0, 0"
                                 materialDesign:HintAssist.Hint="Module Code"
-                                Padding="5, 5, 5, 5" />
+                                Padding="5, 5, 5, 5" Foreground="White" />
 
                             <Label 
                                 x:Name="lblModCode"
                                 Content="Module Code"
                                 FontSize="16"
                                 FontWeight="Black"
-                                Margin="130, 0, 0, 0"/>
+                                Margin="130, 0, 0, 0" Foreground="White"/>
 
                             <TextBox 
                                 x:Name="txtModCode"
@@ -93,7 +273,7 @@
                                 FontSize="16"
                                 Margin="25, 0, 0, 0"
                                 materialDesign:HintAssist.Hint="Module Code"
-                                Padding="5, 5, 5, 5"/>
+                                Padding="5, 5, 5, 5" Foreground="White"/>
 
                         </WrapPanel>
 
@@ -105,7 +285,7 @@
                                 x:Name="lblModuleName"
                                 Content="Module Name"
                                 FontSize="16"
-                                FontWeight="Black"/>
+                                FontWeight="Black" Foreground="#DDF7F7F7"/>
 
                             <TextBox 
                                 x:Name="txtModuleName"
@@ -113,22 +293,22 @@
                                 FontSize="16"
                                 Margin="20, 0, 0, 0"
                                 materialDesign:HintAssist.Hint="Module Name"
-                                Padding="5, 5, 5, 5"/>
+                                Padding="5, 5, 5, 5" Foreground="White"/>
 
                             <Label 
                                 x:Name="lblHoursStudied"
                                 Content="Hours Studied"
                                 FontSize="16"
                                 FontWeight="Black"
-                                Margin="125, 0, 0, 0"/>
+                                Margin="125, 0, 0, 0" Foreground="White"/>
 
                             <TextBox 
                                 x:Name="txtHoursStudied"
                                 Width="150"
                                 FontSize="16"
                                 Margin="20, 0, 0, 0"
-                                materialDesign:HintAssist.Hint="Module Code"
-                                Padding="5, 5, 5, 5"/>
+                                materialDesign:HintAssist.Hint="0"
+                                Padding="5, 5, 5, 5" Foreground="White"/>
 
 
                         </WrapPanel>
@@ -141,7 +321,7 @@
                                 x:Name="lblModuleCredits"
                                 Content="Module Credits"
                                 FontSize="16"
-                                FontWeight="Black"/>
+                                FontWeight="Black" Foreground="#DDF7F7F7"/>
 
                             <TextBox 
                                 x:Name="txtModuleCredits"
@@ -149,22 +329,20 @@
                                 FontSize="16"
                                 Margin="20, 0, 0, 0"
                                 materialDesign:HintAssist.Hint="0"
-                                Padding="5, 5, 5, 5"/>
+                                Padding="5, 5, 5, 5" Foreground="White"/>
 
                             <Label 
                                 x:Name="lblDateStudied"
                                 Content="Date Studied"
                                 FontSize="16"
                                 FontWeight="Black"
-                                Margin="215, 0, 0, 0"/>
+                                Margin="215, 0, 0, 0" Foreground="White"/>
 
-                            <DatePicker 
-                                x:Name="dpCustomDateStudied"
-                                Width="150"
+                            <Local:DateBox 
+                                Width="120"
                                 FontSize="16"
-                                Margin="20, 0, 0, 0"
-                                materialDesign:HintAssist.Hint="2021/10/23"
-                                Padding="5, 5, 5, 5"/>
+                                materialDesign:HintAssist.Hint="08/09/2021"
+                                Margin="20, 0, 0, 0"/>
 
 
                         </WrapPanel>
@@ -177,7 +355,7 @@
                                 x:Name="lblWeeklyHours"
                                 Content="Weekly Class Hrs"
                                 FontSize="16"
-                                FontWeight="Black"/>
+                                FontWeight="Black" Foreground="#DDF7F7F7"/>
 
                             <TextBox 
                                 x:Name="txtWeeklyHours"
@@ -185,7 +363,7 @@
                                 FontSize="16"
                                 Margin="5, 0, 0, 0"
                                 materialDesign:HintAssist.Hint="0"
-                                Padding="5, 5, 5, 5"/>
+                                Padding="5, 5, 5, 5" Foreground="White"/>
 
                             <Button 
                                 x:Name="btnUpdateModule"
@@ -203,7 +381,7 @@
                                 x:Name="lblSemesterWeekLength"
                                 Content="Semester Length"
                                 FontSize="16"
-                                FontWeight="Black"/>
+                                FontWeight="Black" Foreground="#DDF7F7F7"/>
 
                             <TextBox 
                                 x:Name="txtMSemesterLength"
@@ -211,7 +389,7 @@
                                 FontSize="16"
                                 Margin="5, 0, 0, 0"
                                 materialDesign:HintAssist.Hint="14"
-                                Padding="5, 5, 5, 5"/>
+                                Padding="5, 5, 5, 5" Foreground="White"/>
 
                         </WrapPanel>
 
@@ -225,15 +403,34 @@
                                 x:Name="lblStartDate"
                                 Content="Start Date"
                                 FontSize="16"
-                                FontWeight="Black"/>
+                                FontWeight="Black" 
+                                Foreground="#DDF7F7F7"/>
 
-                            <DatePicker 
-                                x:Name="dpStartDate"
-                                Width="150"
+                            <Local:DateBox 
+                                x:Name="dpLocal"
+                                Width="120"
                                 FontSize="16"
-                                Margin="55, 0, 0, 0"
-                                materialDesign:HintAssist.Hint="2021/10/23"
-                                Padding="5, 5, 5, 5"/>
+                                materialDesign:HintAssist.Hint="08/09/2021"
+                                Margin="20, 0, 0, 0"/>
+
+                            <!--- <TextBox 
+                                x:Name="Part_Text"
+                                Foreground="#fff"            
+                                FontSize="16"
+                                Width="120"
+                                Margin="0, "/>
+
+                            <Image
+                                Source="pack://Application:,,,/Assets/Icons/calender.png"             
+                                HorizontalAlignment="Right"
+                                Width="15"
+                                Height="15"
+                                VerticalAlignment="Center"
+                                Stretch="Fill"
+                                ForceCursor="True"
+                                Cursor="Hand"
+                                MouseDown="Image_MouseDown"/>
+                            -->
 
                         </WrapPanel>
 

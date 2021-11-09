@@ -11,7 +11,8 @@
 
     <Border        
         Background="#fff"        
-        CornerRadius="0, 0, 15, 15">
+        CornerRadius="0, 0, 15, 15"
+        Loaded="Border_Loaded">
         <Grid x:Name="myGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
@@ -117,11 +118,12 @@
 
                 <Label 
                     x:Name="lblUser"
-                    Content="20117648@rcconnect.co.za"
+                    Content="{Binding Student_Email}"
                     Foreground="#fff"
                     Margin="10, 5, 0, 0"
                     ForceCursor="True"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    MouseDown="lblUser_MouseDown"/>
 
             </WrapPanel>
 

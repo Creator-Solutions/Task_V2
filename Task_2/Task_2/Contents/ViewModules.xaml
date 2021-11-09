@@ -1,4 +1,4 @@
-﻿<Page x:Class="Task_2.Views.ViewModules"
+﻿ <Page x:Class="Task_2.Views.ViewModules"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -333,7 +333,7 @@
 
                         <DataGridTextColumn 
                             Header="Module Name"
-                            Width="240"
+                            Width="300"
                             Binding="{Binding Path=ModuleName}">
                             <DataGridTextColumn.HeaderStyle>
                                 <Style
@@ -381,7 +381,7 @@
 
                         <DataGridTextColumn 
                             Header="Study Hours Remaining"
-                            Width="205"
+                            Width="150"
                             Binding="{Binding Path=Study_Hours_Remaining}">
                             <DataGridTextColumn.HeaderStyle>
                                 <Style
@@ -426,10 +426,24 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 
                                 <DataTemplate>
-                                    <Button 
-                                        Name="btnView"
-                                        Content="Delete Module"
-                                        Click="btnView_Click"/>
+                                    <Border
+                                        Background="#333B49"
+                                        Width="150"
+                                        Height="30"
+                                        CornerRadius="15, 15, 15, 15">
+
+                                        <TextBlock 
+                                            x:Name="tbRemoveModule"
+                                            Text="Remove Module"
+                                            Foreground="#fff"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            MouseEnter="tbRemoveModule_MouseEnter"
+                                            MouseLeave="tbRemoveModule_MouseLeave"
+                                            MouseDown="tbRemoveModule_MouseDown"
+                                            ForceCursor="True"
+                                            Cursor="Hand"/>
+                                    </Border>
 
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

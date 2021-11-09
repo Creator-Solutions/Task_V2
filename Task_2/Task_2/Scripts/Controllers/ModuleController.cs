@@ -38,6 +38,19 @@ namespace Task_2.Scripts.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Main Logic To Add Module 
+        /// To The Database in Background
+        /// </summary>
+        /// <param name="student_number"></param>
+        /// <param name="semesterLength"></param>
+        /// <param name="semesterStart"></param>
+        /// <param name="module_code"></param>
+        /// <param name="module_name"></param>
+        /// <param name="mod_Credits"></param>
+        /// <param name="classHours"></param>
+        /// <param name="studyhours"></param>
+        /// <returns></returns>
         public async Task Add_Module(string student_number, int semesterLength, string semesterStart, string module_code, string module_name, int mod_Credits, int classHours, int studyhours)
         {
 
@@ -51,7 +64,7 @@ namespace Task_2.Scripts.Controllers
                 cmd.Parameters.Add("@semLength", SqlDbType.Int, 8).Value = semesterLength;
                 cmd.Parameters.Add("@semStartDate", SqlDbType.VarChar, 20).Value = semesterStart;
                 cmd.Parameters.Add("@modCode", SqlDbType.VarChar, 20).Value = module_code;
-                cmd.Parameters.Add("@modName", SqlDbType.VarChar, 20).Value = module_name;
+                cmd.Parameters.Add("@modName", SqlDbType.VarChar, 255).Value = module_name;
                 cmd.Parameters.Add("@modCredit", SqlDbType.Int, 8).Value = mod_Credits;
                 cmd.Parameters.Add("@classhours", SqlDbType.Int, 8).Value = classHours;
                 cmd.Parameters.Add("@selfstudyhrs", SqlDbType.Int, 8).Value = studyhours;
@@ -62,6 +75,13 @@ namespace Task_2.Scripts.Controllers
             }
         }
 
+        /// <summary>
+        /// Get The Hours Studied From 
+        /// Database
+        /// </summary>
+        /// <param name="modCode"></param>
+        /// <param name="stdNumber"></param>
+        /// <returns></returns>
         public async Task<int> Get_Studied_Hours(string modCode, string stdNumber)
         {
             int hours = 0;
@@ -75,18 +95,34 @@ namespace Task_2.Scripts.Controllers
 
                 await conn.OpenAsync();
 
-                hours = int.Parse(cmd.ExecuteScalar().ToString());
+                hours = (cmd.ExecuteScalar() as int?) ?? 0;
             }
 
             return hours;
 
         }
 
+        /// <summary>
+        /// Subtract Database study time 
+        /// and custom study time
+        /// </summary>
+        /// <param name="custom_hours"></param>
+        /// <param name="studied_hours"></param>
+        /// <returns></returns>
         public int Subtract_Hours(int custom_hours, int studied_hours)
         {
             return studied_hours - custom_hours;
         }
 
+        /// <summary>
+        /// Update New Time To Database
+        /// => Module and Student Number 
+        /// respectively
+        /// </summary>
+        /// <param name="modCode"></param>
+        /// <param name="stdNumber"></param>
+        /// <param name="hours"></param>
+        /// <returns></returns>
         public async Task Update_Module_Hours(string modCode, string stdNumber, int hours)
         {
             string sql = "UPDATE Module_Data SET selfStudyHours=@hours WHERE ModuleCode=@code AND Student_Number=@std";

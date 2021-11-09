@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Task_2.Scripts.External
+﻿namespace Task_2.Scripts.External
 {
     public class Modules
     {
 
+        /// <summary>
+        /// Class Properties For Field Assigning
+        /// </summary>
         private string moduleName;
         private string moduleCode;
         private string semesterStartDate;
@@ -75,6 +74,11 @@ namespace Task_2.Scripts.External
         }
     }
 
+    /// <summary>
+    /// Class for Properties
+    /// For Assigning
+    /// Custom Hours
+    /// </summary>
     public class CustomModuleHours
     {
 

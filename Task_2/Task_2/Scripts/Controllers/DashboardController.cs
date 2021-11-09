@@ -15,21 +15,23 @@ namespace Task_2.Scripts.Controllers
 {
     public class DashboardController: INotifyPropertyChanged
     {
-       
-        const string connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Course_Management;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+        ///database connection string
+        const string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Course_Management;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+        /// <summary>
+        /// Class Properties For 
+        /// Data binding 
+        /// and Value Of Fields
+        /// </summary>
         private int currentYear;
         private int highest_time;
-        private int highest_required_time;
         private int lowest_time;
-        private int lowest_required_time;
 
 
         private int semester_length;
         private string semesterStartDate;
         private string highest_module;
-        private string lowest_module;
 
         public int Current_Year
         {
@@ -37,6 +39,9 @@ namespace Task_2.Scripts.Controllers
             set
             {
                 currentYear = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
         }
@@ -47,16 +52,9 @@ namespace Task_2.Scripts.Controllers
             set
             {
                 highest_time = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public int Highest_Required_Time
-        {
-            get => highest_required_time;
-            set
-            {
-                highest_required_time = value;
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
         }
@@ -67,16 +65,9 @@ namespace Task_2.Scripts.Controllers
             set
             {
                 lowest_time = value;
-                OnPropertyChanged();
-            }
-        }
 
-        public int Lowest_Required_Time
-        {
-            get => lowest_required_time;
-            set
-            {
-                lowest_required_time = value;
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
         }
@@ -87,19 +78,12 @@ namespace Task_2.Scripts.Controllers
             set
             {
                 highest_module = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
 
-        }
-
-        public string Lowest_Module
-        {
-            get => lowest_module;
-            set
-            {
-                lowest_module = value;
-                OnPropertyChanged();
-            }
         }
 
         public int Semester_Length
@@ -108,6 +92,9 @@ namespace Task_2.Scripts.Controllers
             set
             {
                 semester_length = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
 
@@ -119,24 +106,32 @@ namespace Task_2.Scripts.Controllers
             set
             {
                 semesterStartDate = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
 
         }
 
-       
+       /// <summary>
+       /// Constructor That handles 
+       /// Column Chart Loading
+       /// </summary>
         public DashboardController()
         {
-
+            //Lists For Labels for Chart
             Labels = new List<string>();
             Study_Hours = new List<int>();
+
+            //Select Values From Database
             string sql = "SELECT ModuleCode, selfStudyHours FROM Module_Data WHERE Student_Number=@num";
 
             using (var conn = new SqlConnection(connString))
             using (var cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@num", SqlDbType.VarChar, 55).Value = Application.Current.Properties["Student_Number"];
-
+                cmd.Parameters.Add("@num", SqlDbType.VarChar, 55).Value = Properties.Settings.Default.Student_Number;
+                 
                 conn.Open();
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -148,7 +143,8 @@ namespace Task_2.Scripts.Controllers
                 }
             }
 
-
+            //new Collection For Required Hours Of Study
+            //=> SeriesCollection => Column in Chart
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
@@ -164,6 +160,11 @@ namespace Task_2.Scripts.Controllers
                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
         }        
 
+        /// <summary>
+        /// On PropertyChange Event 
+        /// => Changes UI Automatically 
+        /// If Property Value changes
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
@@ -181,5 +182,6 @@ namespace Task_2.Scripts.Controllers
         public SeriesCollection SeriesCollection { get; set; }
         public Func<ChartPoint, string> PointLabel { get; set; }
         public Func<double, string> Formatter { get; set; }
+        public string Lowest_Module { get; internal set; }
     }
 }

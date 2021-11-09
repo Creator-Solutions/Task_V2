@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,7 +12,7 @@ namespace Task_2.Scripts.External
         /// Method to hash Password To The Database
         /// </summary>
         /// <param name="encryptString"></param>
-        /// <returns></returns>
+        /// <returns>string</returns>
         public string HashPassword(string encryptString)
         {          
             string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement    

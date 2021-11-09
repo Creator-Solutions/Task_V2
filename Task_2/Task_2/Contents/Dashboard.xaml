@@ -8,6 +8,18 @@
       Height="650" 
       Width="1280"
       Foreground="#fff">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" >
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation 
+                        Storyboard.TargetName="pgLoading"
+                        Storyboard.TargetProperty="Value"
+                        From="0" To="100" Duration="0:0:5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
     <Border 
         Loaded="Border_Loaded"
         Background="#252B35"        
@@ -15,6 +27,12 @@
         <Grid>
             <StackPanel
                 Orientation="Vertical">
+
+                <ProgressBar 
+                    x:Name="pgLoading" 
+                    IsIndeterminate="true"
+                    Minimum="0"
+                    Maximum="5"/>
 
                 <Label 
                     x:Name="lblTitle"
@@ -171,13 +189,14 @@
 
                                 <StackPanel
                                     Orientation="Vertical"
-                                    Width="160"
+                                    Width="350"
                                     Height="140"
                                     HorizontalAlignment="Left">
 
                                     <Label 
                                         x:Name="lblNetCurr"
                                         Content="Current"
+                                        FontSize="18"
                                         Foreground="#fff"
                                         HorizontalAlignment="Center"
                                         Margin="0, 25, 0, 0"/>
@@ -190,28 +209,6 @@
                                         Foreground="#32cd32"
                                         FontWeight="Black"/>
 
-                                </StackPanel>
-
-                                <StackPanel
-                                    Width="160"
-                                    Height="140"
-                                    Margin="30, 0, 0, 0"
-                                    HorizontalAlignment="Right">
-
-                                    <Label 
-                                        x:Name="lblStudyReq"
-                                        Content="Required"
-                                        HorizontalAlignment="Center"
-                                        Margin="0, 25, 0, 0"
-                                        Foreground="#fff"/>
-
-                                    <Label 
-                                        x:Name="lblStudyRequired"
-                                        Content="{Binding Highest_Required_Time}"
-                                        FontSize="18"
-                                        HorizontalAlignment="Center"
-                                        Foreground="#ce2029"
-                                        FontWeight="Black"/>
                                 </StackPanel>
 
                             </StackPanel>
@@ -260,13 +257,14 @@
 
                                 <StackPanel
                                     Orientation="Vertical"
-                                    Width="160"
+                                    Width="350"
                                     Height="140"
                                     HorizontalAlignment="Left">
 
                                     <Label 
                                         x:Name="lblCurrExp"
                                         Content="Current"
+                                        FontSize="18"
                                         HorizontalAlignment="Center"
                                         Margin="0, 25, 0, 0"
                                         Foreground="#fff"/>
@@ -280,30 +278,6 @@
                                         FontWeight="Black"/>
 
                                 </StackPanel>
-
-                                <StackPanel
-                                    Width="160"
-                                    Height="140"
-                                    Margin="30, 0, 0, 0"
-                                    HorizontalAlignment="Right">
-
-                                    <Label 
-                                        x:Name="lblStudyRequirement"
-                                        Content="Required"
-                                        HorizontalAlignment="Center"
-                                        Margin="0, 25, 0, 0"
-                                        Foreground="#fff"/>
-
-                                    <Label 
-                                        x:Name="lblRequirementAmount"
-                                        Content="{Binding Lowest_Required_Time}"
-                                        FontSize="18"
-                                        HorizontalAlignment="Center"
-                                        Foreground="#ce2029"
-                                        FontWeight="Black"/>
-
-                                </StackPanel>
-
                             </StackPanel>
                         </StackPanel>
 
@@ -347,7 +321,8 @@
                                     VerticalAlignment="Center"
                                     Margin="15, 0, 0, 0"
                                     ForceCursor="True"
-                                    Cursor="Hand"/>
+                                    Cursor="Hand"
+                                    MouseDown="tbModulesLink_MouseDown"/>
 
                             </WrapPanel>
 
@@ -370,7 +345,8 @@
                                     VerticalAlignment="Center"
                                     Margin="15, 0, 0, 0"
                                     ForceCursor="True"
-                                    Cursor="Hand"/>
+                                    Cursor="Hand"
+                                    MouseDown="tbAddModuleLink_MouseDown"/>
 
                             </WrapPanel>
                         </StackPanel>

@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Task_2.Views"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="685" d:DesignWidth="1280"
+      Height="685" 
+      Width="1280"
       Foreground="#fff">
 
     <Border         
@@ -16,7 +17,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="550"/>
-                <ColumnDefinition Width="550"/>
+                <ColumnDefinition Width="730"/>
             </Grid.ColumnDefinitions>
 
                    
@@ -133,14 +134,14 @@
                 Foreground="#fff"
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Left"
-                Margin="85, 55, 0, 0"/>
+                Margin="125, 55, 0, 0"/>
 
             <StackPanel 
                 Orientation="Vertical"  
                 Grid.Column="1" 
                 Width="500" 
                 Height="450" 
-                Margin="100, 25, 0, 0">
+                Margin="0, 25, 0, 0">
 
                 <WrapPanel 
                     Orientation="Horizontal" 

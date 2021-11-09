@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace Task_2.Scripts.External
 {
@@ -12,7 +9,6 @@ namespace Task_2.Scripts.External
     /// </summary>
     public class ModuleInfo : INotifyPropertyChanged
     {
-
         private string student_number;
         private string moduleCode;
         private string moduleName;
@@ -29,7 +25,7 @@ namespace Task_2.Scripts.External
             set => student_number = value;
         }
 
-        public string ModueCode
+        public string ModuleCode
         {
             get => moduleCode;
             set => moduleCode = value;
@@ -53,6 +49,9 @@ namespace Task_2.Scripts.External
             set
             {
                 modulecount = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
         }
@@ -63,6 +62,9 @@ namespace Task_2.Scripts.External
             set
             {
                 total_credits = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
         }
@@ -73,6 +75,9 @@ namespace Task_2.Scripts.External
             set
             {
                 average_time = value;
+
+                //Call OnPropertyChange Event
+                //On Set for Property
                 OnPropertyChanged();
             }
         }
@@ -85,7 +90,9 @@ namespace Task_2.Scripts.External
         }
 
         /// <summary>
-        /// On Property Changed Event
+        /// On PropertyChange Event 
+        /// => Changes UI Automatically 
+        /// If Property Value changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)

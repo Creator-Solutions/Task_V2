@@ -36,7 +36,7 @@ namespace Task_2.Scripts.Controllers
 
                 if (reader.Read())
                 {
-                    Application.Current.Properties["Student_Number"] = reader["Student_Number"].ToString();
+                    Properties.Settings.Default.Student_Number = reader["Student_Number"].ToString();
                     result = true;
                 } else
                 {
@@ -48,7 +48,7 @@ namespace Task_2.Scripts.Controllers
         }
 
 
-        public bool Valid_Email(string email, string password)
+        public bool Valid_Inputs(string email, string password)
         {
             if (email.Equals(string.Empty) || password.Equals(string.Empty))
             {

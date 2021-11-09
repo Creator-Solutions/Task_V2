@@ -42,4 +42,7 @@ H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\T
 H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\ViewModules.g.cs
 H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\AddModule.baml
 H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Contents\ViewModules.baml
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Custom Controls\DateBox.g.cs
+H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Custom Controls\DateBox.baml
 H:\External\College Work\Second Year\Second Semester\Programming 2B\POE\Task_2\Task_V2\Task_2\Task_2\obj\Debug\netcoreapp3.1\Task_2.csproj.AssemblyReference.cache
